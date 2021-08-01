@@ -75,6 +75,7 @@ function startGame(){
   playerTwoDeck = shuffledDeck.slice(shuffledDeck.length/2)
   console.log(playerOneDeck.length, playerTwoDeck.length)
 }
+
 //draw the card
 function drawCard(){
   howManyRounds++
