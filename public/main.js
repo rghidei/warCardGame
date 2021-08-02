@@ -58,15 +58,11 @@ function createDeck(){
 
 //shuffle the deck
 function shuffleTheDeck(cardDeck){
-//let newDeck;
-//console.log(shuffledDeck, "new")
+
   while(cardDeck.length > 0){
-    //console.log(cardDeck.length, "old1")
     let randomIndex = Math.floor(Math.random() * (cardDeck.length - 1))
     shuffledDeck.push(cardDeck[randomIndex])
-    //console.log(randomIndex, "card")
     cardDeck.splice(randomIndex, 1)
-    //console.log(cardDeck.length, 'old2')
   }
   console.log(shuffledDeck.length)
 
