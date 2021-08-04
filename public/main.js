@@ -69,9 +69,7 @@ function shuffleTheDeck(cardDeck){
     //console.log(cardDeck.length, 'old2')
   }
   console.log(shuffledDeck.length)
-  // shuffledDeck = shuffledDeck.concat(cardDeck[0])
-  // cardDeck.pop()
-  //console.log(newDeck)
+
 }
 
 //start the game
