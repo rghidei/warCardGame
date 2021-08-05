@@ -9,6 +9,22 @@ let rounds = document.querySelector('#rounds')
 let p1Deck = document.querySelector('#p1D')
 let p2Deck = document.querySelector('#p2D')
 
+let p1ValT= document.querySelector('.p1ValT')
+let p1ValB = document.querySelector('.p1ValB')
+
+let p1SuT = document.querySelector('.p1SuT')
+let p1SuM = document.querySelector('.p1SuM')
+let p1SuB = document.querySelector('.p1SuB')
+
+let p2ValT = document.querySelector('.p2ValT')
+let p2ValB = document.querySelector('.p2ValB')
+
+let p2SuT = document.querySelector('.p2SuT')
+let p2SuM = document.querySelector('.p2SuM')
+let p2SuB = document.querySelector('.p2SuB')
+
+
+
 //Card Info
 let values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
 let suits = ['♣','♥', '♠','◆']
@@ -68,12 +84,26 @@ function startGame(){
 //draw the card
 function drawCard(){
   howManyRounds++
-  rounds.innerText = howManyRounds
   msg2.innerText = ""
   let p1CurCard = playerOneDeck[curCardPlayer1]
   let p2CurCard = playerTwoDeck[curCardPlayer2]
   console.log("cur Index/Card", curCardPlayer1, curCardPlayer2, p1CurCard, p2CurCard)
   whoWon = findWinner(p1CurCard, p2CurCard)
+
+  p1ValT.innerText = p1CurCard.value
+  p1ValB.innerText = p1CurCard.value
+  p1SuT.innerText = p1CurCard.suit
+  p1SuM.innerText = p1CurCard.suit
+  p1SuB.innerText = p1CurCard.suit
+
+  p2ValT.innerText = p2CurCard.value
+  p2ValB.innerText = p2CurCard.value
+  p2SuT.innerText = p2CurCard.suit
+  p2SuM.innerText = p2CurCard.suit
+  p2SuB.innerText = p2CurCard.suit
+
+
+  rounds.innerText = howManyRounds
   msg1.innerText = 'Player1 draws ' + p1CurCard.value + p1CurCard.suit + " and Player2 draws " + p2CurCard.value + p2CurCard.suit + ". The winner is " + whoWon + "!"
   p1Wins.innerText = playerOneWins
   p2Wins.innerText = playerTwoWins
@@ -132,6 +162,18 @@ function findWinner(p1CurCard, p2CurCard){
       p1TieIndexCard = values.indexOf(pOne2ndCard.value)
       p2TieIndexCard = values.indexOf(pTwo2ndCard.value)
       console.log(p1TieIndexCard, p2TieIndexCard)
+      p1ValT.innerText = pOne2ndCard.value
+      p1ValB.innerText = pOne2ndCard.value
+      p1SuT.innerText = pOne2ndCard.suit
+      p1SuM.innerText = pOne2ndCard.suit
+      p1SuB.innerText = pOne2ndCard.suit
+
+      p2ValT.innerText = pTwo2ndCard.value
+      p2ValB.innerText = pTwo2ndCard.value
+      p2SuT.innerText = pTwo2ndCard.suit
+      p2SuM.innerText = pTwo2ndCard.suit
+      p2SuB.innerText = pTwo2ndCard.suit
+      msg3.innerText = 'Player1 draws ' + pOne2ndCard.value + pOne2ndCard.suit + " and Player2 draws " + pTwo2ndCard.value + pTwo2ndCard.suit
       if(p1TieIndexCard > p2TieIndexCard){
         memory2.push(playerTwoDeck[curCardPlayer2 + tieCurCard - 1],pTwo2ndCard)
         console.log(memory2)
@@ -163,12 +205,7 @@ function findWinner(p1CurCard, p2CurCard){
 }
 
 
-//if it is draw, go to war
-// function goToWar(pOne2ndCard, pTwo2ndCard){
-//   let p1Every2ndIndex = values.indexOf(pOne2ndCard.value)
-//   let p2Every2ndIndex = values.indexOf(pTwo2ndCard.value)
-//   console.log(pOne2ndCard, pTwo2ndCard)
-// }
+
 
 //reset the curcards to start at the beg
 function resetCurCard(){

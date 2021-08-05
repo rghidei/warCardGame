@@ -5,3 +5,46 @@ body{
 img{
   height: 200px;
 }
+.col-sm-6{
+  border: 1px solid black;
+}
+body{
+  background-color: pink;
+}
+/* //card span */
+.sp{
+  display: block;
+}
+#card{
+  width: 110px;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  background: #FFF;
+  color: #aa00cc88;
+  box-shadow: 1px 1px 3px #000;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  border-radius:10px;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+
+}
+
+#top{
+  text-align: left;
+}
+
+#bot{
+  text-align: right;
+}
+
+.scoresRight{
+  display: inline;
+  text-align: right;
+}
+
+.scoresLeft{
+  display: inline;
+  text-align: left;
+}

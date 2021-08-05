@@ -31,26 +31,31 @@ module.exports = function(app, passport, db) {
         })
     });
 
+
+
     // PLayer 1 Game Area SECTION =========================
+
+    //backend side
+    function getGameHistory(req, res){
+      db.collection('messages').find().toArray((err, result) => {
+        if (err) return console.log(err)
+        return JSON.stringify(result)
+      })
+    }
+
+    //backend route
+    app.get('/gameHistory', getGameHistory)
+
+
+//  frontend side
     app.get('/game', isLoggedIn, function(req, res) {
-        db.collection('messages').find().toArray((err, result) => {
-          if (err) return console.log(err)
-          res.render('game.ejs', {
-            user : req.user,
-            messages: result,
-          })
+        res.render('game.ejs', {
+          user : req.user,
+          messages: getGameHistory(req, res)
         })
     });
 
-    // app.get('/game', isLoggedIn, function(req, res) {
-    //     db.collection('messages').find().toArray((err, result) => {
-    //       if (err) return console.log(err)
-    //       res.render('game.ejs', {
-    //         user : req.user,
-    //         messages: result
-    //       })
-    //     })
-    // });
+    
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
