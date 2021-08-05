@@ -258,8 +258,6 @@ function gameOver(){
 }
 
 function resetGame(){
-  console.log("hi")
-  console.log(cardDeck)
   p1CurCard = 0
   p2CurCard = 0
   playerOneWins = 0
